@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  root to: 'search_pages#search'
+  
+  get 'search_pages/search'
+
+  get 'search_pages/search_result'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
