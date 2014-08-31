@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  procedure_id: 
+  practice_id: 
+  cost: 1.5
+  shown: false
+
+two:
+  procedure_id: 
+  practice_id: 
+  cost: 1.5
+  shown: false
