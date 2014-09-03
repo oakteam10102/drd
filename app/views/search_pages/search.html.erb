@@ -1,2 +1,6 @@
-<h1>SearchPages#search</h1>
-<p>Find me in app/views/search_pages/search.html.erb</p>
+<h1>Search for practice</h1>
+<%= form_tag(search_pages_search_result_path, method: "get") do %>
+  <%= collection_select(:procedure, :procedure_id, Procedure.all, :id, :name) %>
+  <%= submit_tag("Search") %>
+<% end %>
+

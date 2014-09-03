@@ -1,2 +1,6 @@
-<h1>SearchPages#search_result</h1>
-<p>Find me in app/views/search_pages/search_result.html.erb</p>
+<h1>Practice with <%=@procedure.name%></h1>
+<ol>
+<% @practices.each do |practice| %>
+  <li> <%= practice.name %> </li>
+<% end %>
+</ol>
