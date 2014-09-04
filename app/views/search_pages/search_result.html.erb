@@ -1,4 +1,7 @@
-<h1>Practice with <%=@procedure.name%></h1>
+<h2>Practice with <%=@procedure.name%><%= @zipcode.blank? ? "" : " in #{@zipcode}" %> </h2> 
+<% if @practices.empty? %>
+<p> No practice found </p>
+<% end %> 
 <ol>
 <% @practices.each do |practice| %>
   <li> <%= practice.name %> </li>
