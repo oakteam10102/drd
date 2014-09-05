@@ -2,6 +2,8 @@
 <%= form_tag(search_pages_search_result_path, method: "get", class: "form-inline", role:"form") do %>
   <%= collection_select(:procedure, :procedure_id, Procedure.all, :id, :name) %> in
   <%= text_field_tag(:zipcode, "", class: "form-control", placeholder: "66603") %>
+  <%= select_tag(:sort_by, options_for_select(
+  @sorting_options)) %>
   <%= submit_tag("Search") %>
 <% end %>
 
