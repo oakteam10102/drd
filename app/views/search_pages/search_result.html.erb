@@ -1,9 +1,13 @@
 <h2>Practice with <%=@procedure.name%><%= @zipcode.blank? ? "" : " in #{@zipcode}" %> </h2>
-<% if @practices.empty? %>
+<% unless @sort_by.blank? %>
+<p> Sorted by: <%= " #{@sort_by}" %> </p>  
+  
+<% end %>
+<% if @costs.empty? %>
 <p> No practice found </p>
 <% end %> 
 <ol>
-<% @practices.each do |practice| %>
-  <li> <%= practice.name %> </li>
+<% @costs.each do |cost| %>
+  <li> <%= cost.practice.name %> $ <%= " #{cost.price}" %></li>
 <% end %>
 </ol>
