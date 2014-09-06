@@ -6,6 +6,7 @@ class SearchPagesController < ApplicationController
 
   def search_result
     @sorting_options = SORTING_OPTIONS
+    @all_prices = [100, 200, 300, 400]
     
     case params[:commit]
     when "Filter"
@@ -29,6 +30,6 @@ class SearchPagesController < ApplicationController
     end
 
     @name_filter = params[:name_filter]
-    @costs = @costs.by_practice_name(@name_filter)
+    @costs = @costs.by_practice_name(@name_filter).by_price(params[:prices])
   end
 end

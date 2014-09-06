@@ -8,35 +8,28 @@
     <h4> Star Rating </h4>
     <div class="checkbox" %>
       <label>
-        <%= check_box_tag(:five_star) %> Five star
+        <%= check_box_tag 'ratings[]', 5 %> Five star
       </label><br>
       <label>
-        <%= check_box_tag(:four_star) %> Four star
+        <%= check_box_tag 'ratings[]', 4 %> Four star
       </label><br>
       <label>
-        <%= check_box_tag(:three_star) %> Three star
+        <%= check_box_tag 'ratings[]', 3 %> Three star
       </label><br>
       <label>
-        <%= check_box_tag(:two_star) %> Two star
+        <%= check_box_tag 'ratings[]', 2 %> Two star
       </label><br>
       <label>
-        <%= check_box_tag(:one_star) %> One star
+        <%= check_box_tag 'ratings[]', 1 %> One star
       </label><br>
     </div>
     <h4> Price </h4>
     <div class="checkbox" %>
-      <label>
-        <%= check_box_tag(:dollar_100) %> >$100
-      </label><br>
-      <label>
-        <%= check_box_tag(:dollar_200) %> >$200
-      </label><br>
-      <label>
-        <%= check_box_tag(:dollar_300) %> >$300
-      </label><br>
-      <label>
-        <%= check_box_tag(:dollar_400) %> >$400
-      </label><br>
+      <% @all_prices.each do |price| %>
+        <label>
+          <%= check_box_tag 'prices[]', price, if params[:prices]; params[:prices].include?("#{price}") else true end %> >$<%= price %>
+        </label><br>
+      <% end %>
     </div>
     <h4> Administered By: </h4>
       <div class="checkbox" %>

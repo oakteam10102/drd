@@ -2,6 +2,11 @@ class Cost < ActiveRecord::Base
   scope :by_practice_name, -> name {
     joins(:practice).where('practices.name LIKE ?', "%#{name}%") if name.present?
   }
+
+  scope :by_price, -> price_array {
+    where("price > ? ", price_array.min)
+  }
+  
   belongs_to :procedure
   belongs_to :practice
 
@@ -13,4 +18,12 @@ class Cost < ActiveRecord::Base
       find(:all)
     end
   end
+
+  # def self.by_price(price_array)
+  #   if price_array.present?
+  #     where("price > ? ", price_array.min)
+  #   else
+  #     all 
+  #   end
+  # end
 end
