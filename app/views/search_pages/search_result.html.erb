@@ -1,13 +1,23 @@
+<div class="row">
 <h2>Practice with <%=@procedure.name%><%= @zipcode.blank? ? "" : " in #{@zipcode}" %> </h2>
+</div>
+<div class="row">
 <% unless @sort_by.blank? %>
 <p> Sorted by: <%= " #{@sort_by}" %> </p>  
-  
 <% end %>
-<% if @costs.empty? %>
-<p> No practice found </p>
-<% end %> 
-<ol>
-<% @costs.each do |cost| %>
-  <li> <%= cost.practice.name %> $ <%= " #{cost.price}" %></li>
-<% end %>
-</ol>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <%= render 'side_bar' %>
+  </div>
+  <div class="col-sm-8">
+    <% if @costs.empty? %>
+      <p> No practice found </p>
+    <% end %> 
+    <ol>
+    <% @costs.each do |cost| %>
+      <li> <%= cost.practice.name %> $ <%= " #{cost.price}" %></li>
+    <% end %>
+    </ol>
+  </div>
+</div>

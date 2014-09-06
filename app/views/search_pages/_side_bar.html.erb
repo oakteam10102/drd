@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h4> Search by name </h4>
+    <%= text_field_tag :name_filter %>
+    <h3> Filter by </h3>
+    <h4> Star Rating </h4>
+    <div class="checkbox" %>
+      <label>
+        <%= check_box_tag(:five_star) %> Five star
+      </label><br>
+      <label>
+        <%= check_box_tag(:four_star) %> Four star
+      </label><br>
+      <label>
+        <%= check_box_tag(:three_star) %> Three star
+      </label><br>
+      <label>
+        <%= check_box_tag(:two_star) %> Two star
+      </label><br>
+      <label>
+        <%= check_box_tag(:one_star) %> One star
+      </label><br>
+    </div>
+    <h4> Price </h4>
+    <div class="checkbox" %>
+      <label>
+        <%= check_box_tag(:dollar_100) %> >$100
+      </label><br>
+      <label>
+        <%= check_box_tag(:dollar_200) %> >$200
+      </label><br>
+      <label>
+        <%= check_box_tag(:dollar_300) %> >$300
+      </label><br>
+      <label>
+        <%= check_box_tag(:dollar_400) %> >$400
+      </label><br>
+    </div>
+    <h4> Administered By: </h4>
+      <div class="checkbox" %>
+      <label>
+        <%= check_box_tag(:dermatologist) %> Dermatologist
+      </label><br>
+      <label>
+        <%= check_box_tag(:md) %> MD
+      </label><br>
+      <label>
+        <%= check_box_tag(:pa) %> PA
+      </label><br>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+  </div>
+</div>
