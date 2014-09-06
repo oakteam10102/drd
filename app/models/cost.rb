@@ -4,7 +4,7 @@ class Cost < ActiveRecord::Base
   }
 
   scope :by_price, -> price_array {
-    where("price > ? ", price_array.min)
+    where("price > ? ", price_array.min) if price_array.present?
   }
   
   belongs_to :procedure
