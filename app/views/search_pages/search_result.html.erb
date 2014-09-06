@@ -14,7 +14,7 @@
     <% if @costs.empty? %>
       <p> No practice found </p>
     <% end %> 
-    <ol>
+    <ol class="costs">
     <% @costs.each do |cost| %>
       <li> <%= cost.practice.name %> $ <%= " #{cost.price}" %></li>
     <% end %>
