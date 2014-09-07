@@ -16,7 +16,17 @@
     <% end %> 
     <ol class="costs">
     <% @costs.each do |cost| %>
-      <li> <%= cost.practice.name %> $ <%= " #{cost.price}" %></li>
+      <li> 
+        <%= cost.practice.name %>  
+        <% (1..5).each do |i| %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %><br>
+        <span class="glyphicon glyphicon-move"></span>Map<br><br>
+        $<%= " #{cost.price}" %>
+        <div class="pull-right">
+          <p>BOOK NOW>></p>
+        </div>
+      </li>
     <% end %>
     </ol>
   </div>
