@@ -11,7 +11,7 @@ class SearchPagesController < ApplicationController
     case params[:commit]
     when "Filter"
       procedure_id = params[:procedure_id]
-    when "Search"
+    else
       procedure_id = params[:procedure][:procedure_id]
     end
     
@@ -30,6 +30,14 @@ class SearchPagesController < ApplicationController
     end
 
     @name_filter = params[:name_filter]
-    @costs = @costs.by_practice_name(@name_filter).by_price(params[:prices])
+    @price_filter = params[:prices]
+    @costs = @costs.by_practice_name(@name_filter).by_price(@price_filter)
+
+    @resorting_path = search_pages_search_result_path(
+      procedure: {procedure_id: procedure_id}, 
+      zipcode: @zipcode,
+      name_filter: @name_filter,
+      prices: @price_filter,
+      )
   end
 end

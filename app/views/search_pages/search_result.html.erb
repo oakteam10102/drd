@@ -11,6 +11,12 @@
     <%= render 'side_bar' %>
   </div>
   <div class="col-sm-8">
+  <ul class="nav nav-pills nav-justified">
+    <li class="disabled"><a href="#">Sort By:</a></li>
+    <li><%= link_to "Rating", @resorting_path %></li>
+    <li><%= link_to "Most Popular", @resorting_path %></li>
+    <li class=<%= "active" if @sort_by == "Price" %>><%= link_to "Price", "#{@resorting_path}&sort_by=Price" %></li>
+  </ul>
     <% if @costs.empty? %>
       <p> No practice found </p>
     <% end %> 
