@@ -7,7 +7,15 @@
     <h3> Filter by </h3>
     <h4> Star Rating </h4>
     <div class="checkbox" %>
-      <label>
+      <% (1..5).each do |rating| %>
+        <label>
+          <%= check_box_tag 'ratings[]', rating, if params[:ratings]; params[:ratings].include?("#{rating}") else true end %> 
+          <% (1..rating).each do |i| %>
+          <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        </label><br>
+      <% end %>
+      <!-- <label>
         <%= check_box_tag 'ratings[]', 5 %> Five star
       </label><br>
       <label>
@@ -21,7 +29,7 @@
       </label><br>
       <label>
         <%= check_box_tag 'ratings[]', 1 %> One star
-      </label><br>
+      </label><br> -->
     </div>
     <h4> Price </h4>
     <div class="checkbox" %>
