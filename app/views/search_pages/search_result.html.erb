@@ -2,9 +2,6 @@
 <h2>Practice with <%=@procedure.name%><%= @zipcode.blank? ? "" : " in #{@zipcode}" %> </h2>
 </div>
 <div class="row">
-<% unless @sort_by.blank? %>
-<p> Sorted by: <%= " #{@sort_by}" %> </p>  
-<% end %>
 </div>
 <div class="row">
   <div class="col-sm-4">
@@ -14,7 +11,7 @@
   <ul class="nav nav-pills nav-justified">
     <li class="disabled"><a href="#">Sort By:</a></li>
     <li><%= link_to "Rating", @resorting_path %></li>
-    <li><%= link_to "Most Popular", @resorting_path %></li>
+    <li class=<%= "active" if @sort_by == "Most Popular" %>><%= link_to "Most Popular", "#{@resorting_path}&sort_by=Most Popular" %></li>
     <li class=<%= "active" if @sort_by == "Price" %>><%= link_to "Price", "#{@resorting_path}&sort_by=Price" %></li>
   </ul>
     <% if @costs.empty? %>

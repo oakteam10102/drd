@@ -27,6 +27,8 @@ class SearchPagesController < ApplicationController
     case @sort_by
     when "Price"
       @costs = @costs.order(:price)
+    when "Most Popular"
+      @costs = @costs.includes(:practice).order("practices.dummy_booking desc")
     end
 
     @name_filter = params[:name_filter]
