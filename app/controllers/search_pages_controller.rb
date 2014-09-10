@@ -29,10 +29,13 @@ class SearchPagesController < ApplicationController
       @costs = @costs.order(:price)
     when "Most Popular"
       @costs = @costs.includes(:practice).order("practices.dummy_booking desc")
+    when "Rating"
+      @costs = @costs.includes(:practice).order("practices.dummy_rating desc")
     end
 
     @name_filter = params[:name_filter]
     @price_filter = params[:prices]
+    @rating_filter = params[:ratings]
     @costs = @costs.by_practice_name(@name_filter).by_price(@price_filter)
 
     @resorting_path = search_pages_search_result_path(

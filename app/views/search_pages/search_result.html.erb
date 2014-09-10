@@ -10,7 +10,7 @@
   <div class="col-sm-8">
   <ul class="nav nav-pills nav-justified">
     <li class="disabled"><a href="#">Sort By:</a></li>
-    <li><%= link_to "Rating", @resorting_path %></li>
+    <li class=<%= "active" if @sort_by == "Rating" %>><%= link_to "Rating", "#{@resorting_path}&sort_by=Rating" %></li>
     <li class=<%= "active" if @sort_by == "Most Popular" %>><%= link_to "Most Popular", "#{@resorting_path}&sort_by=Most Popular" %></li>
     <li class=<%= "active" if @sort_by == "Price" %>><%= link_to "Price", "#{@resorting_path}&sort_by=Price" %></li>
   </ul>
@@ -20,10 +20,12 @@
     <ol class="costs">
     <% @costs.each do |cost| %>
       <li> 
-        <%= cost.practice.name %>  
-        <% (1..5).each do |i| %>
+        <%= cost.practice.name %>
+        <% star = cost.practice.dummy_rating.round %> 
+        <% (1..star).each do |i| %>
           <span class="glyphicon glyphicon-star"></span>
-        <% end %><br>
+        <% end %>
+        <br>
         <span class="glyphicon glyphicon-move"></span>Map<br><br>
         $<%= " #{cost.price}" %>
         <div class="pull-right">
