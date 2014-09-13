@@ -49,3 +49,5 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+gem 'kaminari'

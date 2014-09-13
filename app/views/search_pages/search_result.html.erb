@@ -17,6 +17,7 @@
     <% if @costs.empty? %>
       <p> No practice found </p>
     <% end %> 
+    <%= paginate @costs %>
     <ol class="costs">
     <% @costs.each do |cost| %>
       <li> 
@@ -34,5 +35,6 @@
       </li>
     <% end %>
     </ol>
+    <%= paginate @costs %>
   </div>
 </div>
