@@ -186,6 +186,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg
   railroady
   rails (= 4.1.1)
