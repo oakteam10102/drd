@@ -39,7 +39,7 @@ class SearchPagesController < ApplicationController
     @qualification_filter = params[:qualifications]
     @costs = @costs.by_practice_name(@name_filter).by_price(@price_filter).
     by_rating(@rating_filter).by_qualification(@qualification_filter).
-    page(params[:page]).per(2)
+    page(params[:page]).per(10)
 
     @resorting_path = search_pages_search_result_path(
       procedure: {procedure_id: procedure_id}, 
