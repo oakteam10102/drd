@@ -22,9 +22,13 @@
     <% @costs.each do |cost| %>
       <li> 
         <%= cost.practice.name %>
-        <% star = cost.practice.dummy_rating.round %> 
-        <% (1..star).each do |i| %>
-          <span class="glyphicon glyphicon-star"></span>
+        <% if cost.practice.dummy_rating %>
+          <% star = cost.practice.dummy_rating.round %> 
+          <% (1..star).each do |i| %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        <% else %>
+          <em>Unrated</em>
         <% end %>
         <br>
         <span class="glyphicon glyphicon-move"></span>Map<br><br>
