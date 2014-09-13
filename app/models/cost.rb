@@ -9,6 +9,10 @@ class Cost < ActiveRecord::Base
   scope :by_rating, -> rating_array {
     joins(:practice).where("practices.dummy_rating >= ? ", rating_array.min) if rating_array.present?
   }
+  scope :by_qualification, -> qualification_array {
+    joins(:practice).where(practices: {qualification: qualification_array.map(&:downcase)}) if qualification_array.present?
+  }
+
   
   belongs_to :procedure
   belongs_to :practice

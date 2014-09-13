@@ -36,7 +36,8 @@ class SearchPagesController < ApplicationController
     @name_filter = params[:name_filter]
     @price_filter = params[:prices]
     @rating_filter = params[:ratings]
-    @costs = @costs.by_practice_name(@name_filter).by_price(@price_filter).by_rating(@rating_filter)
+    @qualification_filter = params[:qualifications]
+    @costs = @costs.by_practice_name(@name_filter).by_price(@price_filter).by_rating(@rating_filter).by_qualification(@qualification_filter)
 
     @resorting_path = search_pages_search_result_path(
       procedure: {procedure_id: procedure_id}, 

@@ -15,21 +15,6 @@
           <% end %>
         </label><br>
       <% end %>
-      <!-- <label>
-        <%= check_box_tag 'ratings[]', 5 %> Five star
-      </label><br>
-      <label>
-        <%= check_box_tag 'ratings[]', 4 %> Four star
-      </label><br>
-      <label>
-        <%= check_box_tag 'ratings[]', 3 %> Three star
-      </label><br>
-      <label>
-        <%= check_box_tag 'ratings[]', 2 %> Two star
-      </label><br>
-      <label>
-        <%= check_box_tag 'ratings[]', 1 %> One star
-      </label><br> -->
     </div>
     <h4> Price </h4>
     <div class="checkbox" %>
@@ -41,15 +26,13 @@
     </div>
     <h4> Administered By: </h4>
       <div class="checkbox" %>
-      <label>
-        <%= check_box_tag(:dermatologist) %> Dermatologist
-      </label><br>
-      <label>
-        <%= check_box_tag(:md) %> MD
-      </label><br>
-      <label>
-        <%= check_box_tag(:pa) %> PA
-      </label><br>
+        <% all_qualifications  = ['Dermatologist', 'MD', 'PA'] %>
+        <% all_qualifications.each do |qualification| %>
+          <label>
+            <%= check_box_tag 'qualifications[]', qualification, if params[:qualifications]; params[:qualifications].include?("#{qualification}") else true end %>
+            <%= qualification %>
+          </label><br>
+        <% end %>
     </div>
     <%= submit_tag "Filter" %>
     <% end %>
